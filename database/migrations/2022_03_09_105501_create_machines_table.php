@@ -18,6 +18,7 @@ class CreateMachinesTable extends Migration
             $table->string('name');
             $table->unsignedBigInteger('activity');
             $table->foreign('activity')->references('id')->on('activities');
+            $table->timestamps();
         });
     }
 

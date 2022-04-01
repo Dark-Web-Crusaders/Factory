@@ -16,10 +16,11 @@ class CreateSensorsTable extends Migration
         Schema::create('sensors', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->bigInteger('plantID');
-            $table->bigInteger('machineID');
+            $table->unsignedBigInteger('plantID');
+            $table->unsignedBigInteger('machineID');
             $table->foreign('plantID')->references('id')->on('plants');
             $table->foreign('machineID')->references('id')->on('machines');
+            $table->timestamps();
         });
     }
 
