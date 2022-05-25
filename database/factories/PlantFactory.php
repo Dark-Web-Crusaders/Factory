@@ -16,6 +16,7 @@ class PlantFactory extends Factory
     {
         return [
             'name' => $this->faker->name(),
+            'location' => $this->faker->country(),
         ];
     }
 }

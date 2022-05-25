@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
 use App\Models\Sensor;
+use DateTime;
 
 class DataFactory extends Factory
 {
@@ -17,9 +18,11 @@ class DataFactory extends Factory
     public function definition()
     {
         return [
-            'data' => $this->faker->randomNumber(7, True),
-            'dataType' => Str::random(8),
-            'sensorID' => Sensor::inRandomOrder()->first()->id
+            //'data' => $this->faker->randomFloat(2,0,20),
+            'data' => $this->faker->numberBetween(1,20),
+            'dataType' => 'kWh',
+            'sensorID' => Sensor::inRandomOrder()->first()->id,
+            'date' => date('Y-m-d'),
         ];
     }
 }

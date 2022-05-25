@@ -15,10 +15,11 @@ class CreateDataTable extends Migration
     {
         Schema::create('data', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('data');
+            $table->float('data', 8, 2);
             $table->string('datatype');
             $table->unsignedBigInteger('sensorID');
             $table->foreign('sensorID')->references('id')->on('sensors');
+            $table->date('date');
             $table->timestamps();
         });
     }
